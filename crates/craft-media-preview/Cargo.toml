@@ -21,3 +21,7 @@ thiserror.workspace = true
 image = { workspace = true, optional = true }
 craft-pdf = { workspace = true, optional = true }
 craft-audio = { workspace = true, optional = true }
+
+[[test]]
+name = "audio"
+required-features = ["audio"]

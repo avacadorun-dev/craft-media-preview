@@ -1,4 +1,3 @@
-#![cfg(feature = "audio")]
 //! Actual synthetic PCM packets, not a fake playback clock or native device qualification.
 use craft_media_preview::*;
 use sha2::{Digest, Sha256};

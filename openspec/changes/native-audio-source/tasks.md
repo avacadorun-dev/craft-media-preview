@@ -1,7 +1,7 @@
 - [x] Source-audit original audio MIME/source-segment workflow and exact decoder APIs.
 - [x] Implement immutable request-bound audio decoding, clipping and seek.
 - [x] Add actual synthetic PCM sample/segment/seek, capacity and cancellation contracts.
-- [ ] Resolve/review the actual hosted lock and qualify all three operating systems.
+- [x] Resolve/review the actual hosted lock and qualify all three operating systems (`246350e`, run 42504549352); six actual PCM source contracts and prior raster/minimal/fmt/strict Clippy checks passed.
 - [ ] Qualify actual MP3/AAC/Vorbis/Opus corpus and matching license/source notices.
 - [ ] Implement bounded native output ring, actual consumed-device progress, resampling and no-device/error states.
 - [ ] Implement original MP4/WebM video sync and host source-segment controls, then independent native acceptance.

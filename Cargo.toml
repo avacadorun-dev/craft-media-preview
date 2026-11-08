@@ -1,0 +1,41 @@
+[workspace]
+resolver = "3"
+members = ["crates/craft-media-preview", "crates/craft-media-egui"]
+
+[workspace.package]
+version = "0.1.0-alpha.1"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT"
+repository = "https://github.com/avacadorun-dev/craft-media-preview"
+
+[workspace.dependencies]
+sha2 = "=0.10.9"
+thiserror = "=2.0.21"
+image = { version = "=0.25.10", default-features = false, features = ["png", "jpeg", "gif", "webp"] }
+egui = "=0.36.2"
+craft-pdf = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9", default-features = false, features = ["raster"] }
+craft-media-preview = { path = "crates/craft-media-preview" }
+
+# Dependency-local patches do not apply to a consumer workspace. Keep all six
+# reader/raster backend packages on the exact same reviewed source as craft-pdf.
+[patch.crates-io]
+hayro = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9" }
+hayro-interpret = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9" }
+hayro-syntax = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9" }
+hayro-jbig2 = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9" }
+hayro-cmap = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9" }
+hayro-postscript = { git = "https://github.com/storytold/craft-libs", rev = "0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9" }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+
+[profile.dev]
+debug = 0
+incremental = false

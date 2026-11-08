@@ -1,0 +1,5 @@
+schema: spec-driven
+context: |
+  Reusable native Rust media preview engines. Hosts own authorization, storage,
+  project semantics, localization, UI shell and persistence. Immutable bounded
+  source input and exact request identity are mandatory. No WebView or ambient I/O.

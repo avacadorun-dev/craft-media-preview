@@ -220,7 +220,9 @@ impl PreviewRequest {
     pub fn source(&self) -> &SourceStamp {
         &self.source
     }
-    pub(crate) fn validate_source(&self, source: &PreviewSource) -> Result<()> {
+    /// Check that this request still describes these exact verified immutable bytes.
+    /// This is an identity check, never project or mutation authority.
+    pub fn validate_source(&self, source: &PreviewSource) -> Result<()> {
         if self.source != source.stamp {
             return Err(PreviewError::StaleRequest);
         }
@@ -277,6 +279,7 @@ pub struct RasterFrame {
     page: Option<(usize, usize)>,
 }
 impl RasterFrame {
+    #[cfg(any(feature = "images", feature = "pdf"))]
     pub(crate) fn new(
         request: PreviewRequest,
         dimensions: [u32; 2],

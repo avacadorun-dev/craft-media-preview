@@ -82,7 +82,7 @@ mod pdf {
     fn document() -> Vec<u8> {
         let red = "1 0 0 rg 0 0 100 50 re f\n";
         let blue = "0 0 1 rg 0 0 100 50 re f\n";
-        let objects = vec![
+        let objects = [
             "<< /Type /Catalog /Pages 2 0 R >>".to_owned(),
             "<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>".to_owned(),
             "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 100 50] /Contents 4 0 R >>".to_owned(),

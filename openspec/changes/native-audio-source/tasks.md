@@ -5,3 +5,5 @@
 - [ ] Qualify actual MP3/AAC/Vorbis/Opus corpus and matching license/source notices.
 - [ ] Implement bounded native output ring, actual consumed-device progress, resampling and no-device/error states.
 - [ ] Implement original MP4/WebM video sync and host source-segment controls, then independent native acceptance.
+
+Hosted resolver run 42504034454 at 23da296 retained the actual lock with SHA-256 `fb806cbb6d771ba8367dff1503102677fe2088b1a862c2a344d24f7c231bb1bc`. The graph adds 22 packages (143→165), removing/upgrading no prior package identities. Exact 0a9d1f48 CraftAudio/CraftMedia and unmodified Symphonia 0.6.1 decoder/container packages are the additions. Device/output/FFmpeg/egui-app dependencies are absent. The resolver's intentional stale-lock failure is not test qualification.

@@ -10,9 +10,9 @@ Primary sources reviewed2026-11-08. Selected source pins are immutable; qualific
 | egui0.36.2 | Host-compatible native presentation, MIT OR Apache-2.0 | No eframe/window loop, file picker or second application. |
 | SHA-20.10.9/thiserror2.0.21 | Exact input identity/typed errors, MIT OR Apache-2.0 | Reused mature narrow utilities. |
 
-## Audio/video candidates, not yet dependencies
+## Audio source decoder and remaining playback candidates
 
-[craft-audio](https://github.com/storytold/craft-libs/blob/0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9/crates/audio/Cargo.toml) with `decode` supplies native AAC/PCM and Symphonia0.6.1 MP3/other decoders. Symphonia is MPL-2.0; keep its source unmodified and distribute its license/source reference. [craft-media](https://github.com/storytold/craft-libs/blob/0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9/crates/media/Cargo.toml) provides MP4/Matroska/Ogg container data, not playback by itself. Both use MIT OR Apache-2.0/Rust1.95 and must use the same source revision.
+The optional `audio` source-decoder feature selects [craft-audio](https://github.com/storytold/craft-libs/blob/0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9/crates/audio/Cargo.toml) with `decode`. It supplies native AAC/PCM and Symphonia0.6.1 MP3/other decoders. Symphonia is MPL-2.0; keep its source unmodified and distribute its license/source reference. [craft-media](https://github.com/storytold/craft-libs/blob/0a9d1f48da9e0e61a2c7b602ba96ef1c4672bcd9/crates/media/Cargo.toml) provides MP4/Matroska/Ogg container data, not playback by itself. Both use MIT OR Apache-2.0/Rust1.95 and must use the same source revision.
 
 [FilmCraft H.2644a56be9c](https://github.com/storytold/filmcraft/blob/4a56be9cff419a5a9b16a25259c97dc823ca8bae/crates/h264/Cargo.toml), default features off, is a narrow pure Rust decoder with its bitstream crate; do not adopt the whole codec hub or app. Its documented progressive8bit4:2:0 Baseline/Main/High scope must be tested against actual reference-compatible synthetic MP4. Original WebM/Ogg and supported codecs remain required; an H.264 specimen cannot establish their acceptance.
 

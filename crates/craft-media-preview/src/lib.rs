@@ -1,4 +1,8 @@
 //! Immutable, source-bound native media previews. Hosts own storage, authorization and workers.
+#[cfg(feature = "audio")]
+mod audio;
+#[cfg(feature = "audio")]
+pub use audio::{AudioBlock, AudioDescription, AudioLimits, AudioSegment, AudioStream};
 #[cfg(feature = "images")]
 mod images;
 #[cfg(feature = "pdf")]
@@ -52,6 +56,9 @@ pub enum PreviewError {
     /// An image codec refused the source.
     #[error("Image preview failed: {0}")]
     Image(String),
+    /// A source-preserving audio decoder/seek operation failed.
+    #[error("Audio could not be decoded: {0}")]
+    Audio(String),
     /// A bounded fallible allocation was unavailable.
     #[error("Not enough memory for this bounded media preview")]
     Allocation,
